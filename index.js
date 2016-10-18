@@ -4,24 +4,21 @@ function get () {
   return Object.keys(require.extensions)
 }
 
-function set (_exts) {
-  if (!Array.isArray(_exts)) throw new TypeError('Expected Array of Strings')
-  var isAllString = _exts.every(function (ext) { return typeof ext === 'string' })
+function set (exts) {
+  if (!Array.isArray(exts)) throw new TypeError('Expected Array of Strings')
+  var isAllString = exts.every(function (ext) { return typeof ext === 'string' })
   if (!isAllString) throw new TypeError('Expected Array of Strings')
 
-  var exts = get()
-  if (exts.length !== _exts.length) throw new RangeError('Number of extensions is not much')
+  if (exts.length !== get().length) throw new RangeError('Number of extensions is not much')
 
-  var allExists = _exts.every(function (ext) { return require.extensions[ext] !== undefined })
+  var allExists = exts.every(function (ext) { return require.extensions[ext] !== undefined })
   if (!allExists) throw new Error('Not all given extensions exists')
 
-  var loaders = exts.map(function (ext) {
+  exts.forEach(function (ext) {
     var loader = require.extensions[ext]
     delete require.extensions[ext]
-    return loader
+    require.extensions[ext] = loader
   })
-
-  _exts.forEach(function (ext) { require.extensions[ext] = loaders[ext] })
 }
 
 function getIndex (ext) {
