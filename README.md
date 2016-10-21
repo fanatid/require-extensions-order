@@ -35,6 +35,8 @@ reo.setIndex('.es', 0)
 console.log(reo.get()) // => [ '.es', '.js', '.json', '.node', '.jsx', '.es6' ]
 ```
 
+Check [rlp-encoding](https://www.npmjs.com/package/rlp-encoding) and [ethereumjs-devp2p](https://www.npmjs.com/package/ethereumjs-devp2p) for real examples.
+
 ## License
 
 MIT
