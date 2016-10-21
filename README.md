@@ -1,6 +1,6 @@
 # require-extensions-order
 
-[![NPM Package](https://img.shields.io/npm/v/rlp-encoding.svg?style=flat-square)](https://www.npmjs.org/package/rlp-encoding)
+[![NPM Package](https://img.shields.io/npm/v/require-extensions-order.svg?style=flat-square)](https://www.npmjs.org/package/require-extensions-order)
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
